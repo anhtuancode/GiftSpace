@@ -33,7 +33,7 @@ Hệ thống hỗ trợ phân quyền người dùng đa cấp bậc (**USER**, 
 | :--- | :--- | :--- |
 | **Backend Framework** | NestJS (TypeScript) | Kiến trúc Module hóa, Dependency Injection, Controller/Service |
 | **ORM & Data Layer** | Prisma ORM | Quản lý schema dữ liệu, migration và truy vấn type-safe |
-| **Database** | PostgreSQL | Cơ sở dữ liệu quan hệ lưu trữ người dùng, phân quyền, token |
+| **Database** | Mysql | Cơ sở dữ liệu quan hệ lưu trữ người dùng, phân quyền, token |
 | **Authentication & Security** | Passport.js, JWT, Bcrypt | Xác thực người dùng, bảo vệ route, mã hóa mật khẩu và token |
 | **Validation & Transform** | class-validator, class-transformer | Ràng buộc kiểu dữ liệu DTO và kiểm tra biến môi trường `.env` |
 | **DevOps & Container** | Docker, Docker Compose | Đóng gói môi trường cơ sở dữ liệu PostgreSQL đồng nhất |
@@ -81,25 +81,11 @@ npm install
 Bước 3: Thiết lập biến môi trường (.env)
 Tạo một file có tên .env tại thư mục gốc của backend (nằm ngang hàng với package.json), sau đó dán nội dung cấu hình dưới đây:
 
-# ==========================================
-# SERVER CONFIGURATION
-# ==========================================
 PORT=8000
 NODE_ENV=development
-
-# ==========================================
-# DATABASE CONNECTION (PostgreSQL qua Docker)
-# ==========================================
 DATABASE_URL="postgresql://postgres:postgres123@localhost:5432/giftspace_db?schema=public"
-
-# ==========================================
-# JWT AUTHENTICATION
-# ==========================================
-# Khóa bí mật và thời hạn của Access Token (15 phút = 900 giây)
 JWT_ACCESS_SECRET="GiftSpace_Access_Secret_2026_!@#"
 JWT_ACCESS_EXPIRES_IN="900"
-
-# Khóa bí mật và thời hạn của Refresh Token (7 ngày = 604800 giây)
 JWT_REFRESH_SECRET="GiftSpace_Refresh_Secret_2026_$%^"
 JWT_REFRESH_EXPIRES_IN="604800"
 
